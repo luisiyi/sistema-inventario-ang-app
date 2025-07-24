@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { Producto } from '../producto';
 import { ProductoService } from '../producto.service';
 import { ActivatedRoute } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-editar-producto',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './editar-producto.component.html'
 })
 export class EditarProductoComponent {
@@ -22,5 +23,9 @@ export class EditarProductoComponent {
       next: (datos) => this.producto = datos,
       error: (errores: any) => console.log(errores)
     })
+  }
+
+  onSubmit(){
+    //editar producto
   }
 }
